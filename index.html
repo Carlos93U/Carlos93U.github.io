@@ -194,10 +194,11 @@
           <li class="navbar-item">
             <button class="navbar-link" data-nav-link>Portfolio</button>
           </li>
-          <!--
+
           <li class="navbar-item">
             <button class="navbar-link" data-nav-link>Blog</button>
           </li>
+          <!--
           <li class="navbar-item">
             <button class="navbar-link" data-nav-link>Contact</button>
           </li> 
@@ -677,6 +678,89 @@
 
             <li class="timeline-item">
 
+              <h4 class="h4 timeline-item-title">AWS Academy Cloud Foundations - AWS Academy</h4>
+
+              <span>Nov 2024</span>
+
+              <p class="timeline-text">
+                Comprehensive course on AWS Cloud fundamentals, covering computing, storage, networking, security, and pricing; focuses on real-world applications and best practices for cloud deployment.
+              </p>
+
+            </li>
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title">GitHub Copilot Course - Codigo Facilito</h4>
+
+              <span>Nov 2024</span>
+
+              <p class="timeline-text">
+                Complete course on GitHub Copilot, exploring AI-powered development, setup, configuration, code generation, error detection, documentation, testing, CLI, Copilot Chat, and ethical implications with hands-on applications.
+              </p>
+
+            </li>
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title">Mastering OpenCV with Python - OpenCV University</h4>
+
+              <span>Oct 2024</span>
+
+              <p class="timeline-text">
+                Comprehensive course on OpenCV covering image processing, video analysis, deep learning, object detection, tracking, augmented reality, and cloud deployment. Includes hands-on projects with Python for real-world applications.
+              </p>
+
+            </li>
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title">Python for Beginners - OpenCV University</h4>
+
+              <span>Oct 2024</span>
+
+              <p class="timeline-text">
+                Introduction to Python fundamentals, control flow, file handling, data structures, and object-oriented programming. Covers modules, exceptions, and core libraries like NumPy and Matplotlib.
+              </p>
+
+            </li>
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title">OpenCV Bootcamp - OpenCV University</h4>
+
+              <span>Set 2024</span>
+
+              <p class="timeline-text">
+                Image processing, object detection, video manipulation, and feature extraction using OpenCV. Covers filtering, annotation, face detection, camera access, and deep learning applications with Python.
+              </p>
+
+            </li>
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title">Image Processing with Python OpenCV - ChipTec</h4>
+
+              <span>Set 2024</span>
+
+              <p class="timeline-text">
+                Comprehensive course on OpenCV covering image processing, transformations, segmentation, contour detection, OCR, facial recognition, and object detection using neural networks with hands-on projects.
+              </p>
+
+            </li>
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title">Cluod Computing AWS, AZURE, GOOGLE CLOUD - CTIC UNI</h4>
+
+              <span>Mar 2024</span>
+
+              <p class="timeline-text">
+                Cloud fundamentals, architecture, networking, storage, security, cost management, and hands-on labs, covering IaaS, PaaS, SaaS, virtualization, identity management, and scalability.
+              </p>
+
+            </li>
+
+            <li class="timeline-item">
+
               <h4 class="h4 timeline-item-title">Machine learning Engineer - Datapath</h4>
 
               <span>Mar 2024</span>
@@ -1062,16 +1146,21 @@
 
       </article>
 
-      <!-- Blog
+      <!-- #BLOG -->
       <article class="" data-page="blog">
 
         <header>
           <h2 class="h2 article-title">Blog</h2>
         </header>
 
+          <!-- Search Bar -->
+        <div class="search-container">
+          <input type="text" id="search-input" placeholder="Search..." onkeyup="filterBlogPosts()">
+        </div>
+
         <section class="blog-posts">
 
-          <ul class="blog-posts-list">
+          <ul class="blog-posts-list" id="rss-feed">
 
             <li class="blog-post-item">
               <a href="#">
@@ -1100,7 +1189,7 @@
 
               </a>
             </li>
-
+            <!--
             <li class="blog-post-item">
               <a href="#">
 
@@ -1240,14 +1329,14 @@
 
               </a>
             </li>
-
+             -->
           </ul>
 
         </section>
 
 
       </article>
-      -->
+
 
       <!--
         - #CONTACT
@@ -1311,6 +1400,102 @@
   -->
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <script>
+    async function loadRSS() {
+        // URLs of the RSS feeds and their respective images
+        const rssFeeds = [
+            { url: 'https://docs.aws.amazon.com/IAM/latest/UserGuide/aws-iam-release-notes.rss', img: './assets/images/blog/aws_iam.svg' },
+            { url: 'https://docs.aws.amazon.com/sagemaker/latest/dg/amazon-sagemaker-release-notes.rss', img: './assets/images/blog/aws_sagemaker.svg' }
+        ];
+
+        let feedContainer = document.getElementById("rss-feed");
+        let originalContent = feedContainer.innerHTML; // Save manually added blogs before clearing the list
+        feedContainer.innerHTML = originalContent; // Restore manually added blogs before inserting RSS articles
+
+        try {
+            let allItems = [];
+
+            for (let feed of rssFeeds) {
+                const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(feed.url)}`;
+                let response = await fetch(apiUrl);
+                let data = await response.json();
+
+                if (data.items) {
+                    data.items.forEach(item => {
+                        allItems.push({
+                            ...item,
+                            customImage: feed.img // Assign the customized image based on the feed
+                        });
+                    });
+                }
+            }
+
+            // Sort articles by date (newest first)
+            allItems.sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate));
+
+            // Limit to the 10 most recent posts (change if needed)
+            allItems.slice(0, 10).forEach(item => {
+                let li = document.createElement("li");
+                li.classList.add("blog-post-item");
+
+                // Convert date to English format
+                let formattedDate = new Date(item.pubDate).toLocaleDateString("en-US", {
+                    year: 'numeric', month: 'long', day: 'numeric'
+                });
+
+                li.innerHTML = `
+                    <a href="${item.link}" target="_blank">
+
+                      <figure class="blog-banner-box">
+                        <img src="${item.customImage}" alt="${item.title}" loading="lazy">
+                      </figure>
+
+                      <div class="blog-content">
+
+                        <div class="blog-meta">
+                          <p class="blog-category">${item.customImage.includes('iam') ? 'AWS IAM' : 'AWS SageMaker'}</p>
+                          <span class="dot"></span>
+                          <time datetime="${item.pubDate}">${formattedDate}</time>
+                        </div>
+
+                        <h3 class="h3 blog-item-title">${item.title}</h3>
+
+                        <p class="blog-text">
+                          ${item.description.substring(0, 100)}...
+                        </p>
+
+                      </div>
+
+                    </a>
+                `;
+                feedContainer.appendChild(li);
+            });
+
+        } catch (error) {
+            console.error("Error loading RSS:", error);
+        }
+    }
+
+    loadRSS();
+
+    // Function to filter blog posts as the user types
+    function filterBlogPosts() {
+        let input = document.getElementById("search-input").value.toLowerCase();
+        let articles = document.querySelectorAll(".blog-post-item");
+
+        articles.forEach(article => {
+            let title = article.querySelector(".h3.blog-item-title").innerText.toLowerCase();
+            if (title.includes(input)) {
+                article.style.display = "block"; // Show article if it matches
+            } else {
+                article.style.display = "none"; // Hide article if it doesn't match
+            }
+        });
+    }
+  </script>
+
+
+
 
 </body>
 
