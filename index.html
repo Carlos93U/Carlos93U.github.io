@@ -1405,7 +1405,9 @@
         // URLs of the RSS feeds and their respective images
         const rssFeeds = [
             { url: 'https://docs.aws.amazon.com/IAM/latest/UserGuide/aws-iam-release-notes.rss', img: './assets/images/blog/aws_iam.svg' },
-            { url: 'https://docs.aws.amazon.com/sagemaker/latest/dg/amazon-sagemaker-release-notes.rss', img: './assets/images/blog/aws_sagemaker.svg' }
+            { url: 'https://docs.aws.amazon.com/sagemaker/latest/dg/amazon-sagemaker-release-notes.rss', img: './assets/images/blog/aws_sagemaker.svg' },
+            { url: 'https://docs.aws.amazon.com/es_es/AmazonS3/latest/userguide/s3-userguide-rss-updates.rss', img: './assets/images/blog/aws_s3.svg' }
+
         ];
 
         let feedContainer = document.getElementById("rss-feed");
@@ -1433,8 +1435,8 @@
             // Sort articles by date (newest first)
             allItems.sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate));
 
-            // Limit to the 10 most recent posts (change if needed)
-            allItems.slice(0, 10).forEach(item => {
+            // Limit to the 100 most recent posts (change if needed)
+            allItems.slice(0, 100).forEach(item => {
                 let li = document.createElement("li");
                 li.classList.add("blog-post-item");
 
