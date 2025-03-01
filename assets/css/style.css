@@ -448,18 +448,18 @@ main {
 
 /* rotate github icon */
 .social-item-rot {
-  animation: rotate 2s linear infinite;
+  animation: rotate-swing 2s ease-in-out infinite;
 }
 
-@keyframes rotate {
+@keyframes rotate-swing {
   0% {
-      transform: rotate(-35deg);
+      transform: rotate(-5deg);
   }
   50% {
-      transform: rotate(0deg);
+      transform: rotate(5deg);
   }
   100% {
-      transform: rotate(-35deg);
+      transform: rotate(-5deg);
   }
 }
 
@@ -745,17 +745,14 @@ main {
 .clients-list {
   display: flex;
   justify-content: flex-start;
-  align-items:stretch ; /* flex-start  */
+  align-items:center ; /* flex-start  */
   gap: 15px;
   margin: 0 -15px;
   padding: 25px;
   padding-bottom: 25px;
-  /* overflow-x: auto; */
-/*   scroll-behavior: smooth;
- */  overscroll-behavior-inline: contain;
+  overscroll-behavior-inline: contain;
   scroll-snap-type: inline mandatory;
-/*   scroll-padding-inline: 25px;
- */}
+}
 
 .clients-item {
   min-width: 50%;
@@ -769,10 +766,6 @@ main {
 }
 
 .clients-item img:hover { filter: grayscale(0); }
-
-
-
-
 
 /*-----------------------------------*\
   #RESUME
