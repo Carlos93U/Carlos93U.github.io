@@ -1644,7 +1644,7 @@ textarea.form-input::-webkit-resizer { display: none; }
 
   .filter-item button {
     color: var(--light-gray);
-    font-size: var(--fs-5);
+    font-size: var(--fs-4);
     transition: var(--transition-1);
   }
 
