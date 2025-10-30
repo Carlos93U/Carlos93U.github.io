@@ -1,20 +1,3 @@
-/*-----------------------------------*\
-  #style.css
-\*-----------------------------------*/
-
-
-/**
- * copyright 2022 @codewithsadee
- */
-
-
-
-
-
-/*-----------------------------------*\
-  #CUSTOM PROPERTY
-\*-----------------------------------*/
-
 :root {
 
   /**
@@ -111,10 +94,6 @@
 
 }
 
-
-
-
-
 /*-----------------------------------*\
   #RESET
 \*-----------------------------------*/
@@ -156,9 +135,6 @@ input, textarea {
 html { font-family: var(--ff-poppins); }
 
 body { background: var(--jet); }
-
-
-
 
 
 /*-----------------------------------*\
@@ -292,10 +268,6 @@ article.active {
   z-index: -1;
 }
 
-
-
-
-
 /*-----------------------------------*\
   #MAIN
 \*-----------------------------------*/
@@ -305,10 +277,6 @@ main {
   margin-bottom: 75px;
   min-width: 259px;
 }
-
-
-
-
 
 /*-----------------------------------*\
   #SIDEBAR
@@ -501,10 +469,6 @@ main {
 
 .navbar-link.active { color: var(--orange-yellow-crayola); }
 
-
-
-
-
 /*-----------------------------------*\
   #ABOUT
 \*-----------------------------------*/
@@ -519,7 +483,6 @@ main {
 }
 
 .about-text p { margin-bottom: 15px; }
-
 
 
 /**
@@ -621,34 +584,6 @@ main {
   overflow: hidden;
 }
 
-
-/**
- * #testimonials-modal
- */
-
-.modal-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow-y: auto;
-  overscroll-behavior: contain;
-  z-index: 20;
-  pointer-events: none;
-  visibility: hidden;
-}
-
-.modal-container::-webkit-scrollbar { display: none; }
-
-.modal-container.active {
-  pointer-events: all;
-  visibility: visible;
-}
-
 .overlay {
   position: fixed;
   top: 0;
@@ -683,32 +618,6 @@ main {
   z-index: 2;
 }
 
-.modal-container.active .testimonials-modal {
-  transform: scale(1);
-  opacity: 1;
-}
-
-.modal-close-btn {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  background: var(--onyx);
-  border-radius: 8px;
-  width: 32px;
-  height: 32px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: var(--white-2);
-  font-size: 18px;
-  opacity: 0.7;
-}
-
-.modal-close-btn:hover,
-.modal-close-btn:focus { opacity: 1; }
-
-.modal-close-btn ion-icon { --ionicon-stroke-width: 50px; }
-
 .modal-avatar-box {
   background: var(--bg-gradient-onyx);
   width: max-content;
@@ -739,16 +648,15 @@ main {
 /**
  * #clients 
  */
-
 .clients { margin-bottom: 15px; }
 
 .clients-list {
   display: flex;
   justify-content: flex-start;
-  align-items:center ; /* flex-start  */
-  gap: 15px;
+  align-items:flex-start ;
+  gap: 5px;
   margin: 0 -15px;
-  padding: 25px;
+  padding: 5px;
   padding-bottom: 25px;
   overscroll-behavior-inline: contain;
   scroll-snap-type: inline mandatory;
@@ -761,11 +669,26 @@ main {
 
 .clients-item img {
   width: 100%;
-  filter: grayscale(1);
+  /*filter: grayscale(0);*/
   transition: var(--transition-1);
 }
 
-.clients-item img:hover { filter: grayscale(0); }
+.clients-item img:hover { transform: scale(1.1); }
+
+/* certifications styles*/
+.cert-img {
+  max-width: 300px;
+  transition: transform 0.3s ease;
+}
+
+.cert-img img {
+  max-width: 290px;
+}
+
+.cert-img:hover {
+  transform: scale(1.15);
+}
+
 
 /*-----------------------------------*\
   #RESUME
@@ -873,10 +796,6 @@ main {
   height: 100%;
   border-radius: inherit;
 }
-
-
-
-
 
 /*-----------------------------------*\
   #PORTFOLIO
@@ -1033,10 +952,6 @@ main {
   font-weight: var(--fw-300);
 }
 
-
-
-
-
 /*-----------------------------------*\
   #BLOG
 \*-----------------------------------*/
@@ -1146,8 +1061,6 @@ main {
     color: rgba(255, 255, 255, 0.7);
 }
 
-
-
 /*-----------------------------------*\
   #CONTACT
 \*-----------------------------------*/
@@ -1251,10 +1164,6 @@ textarea.form-input::-webkit-resizer { display: none; }
 
 .form-btn:disabled:hover::before { background: var(--bg-gradient-jet); }
 
-
-
-
-
 /*-----------------------------------*\
   #RESPONSIVE
 \*-----------------------------------*/
@@ -1271,8 +1180,6 @@ textarea.form-input::-webkit-resizer { display: none; }
 
   .clients-item { min-width: calc(33.33% - 10px); }
 
-
-
   /**
    * #PORTFOLIO, BLOG 
    */
@@ -1281,10 +1188,6 @@ textarea.form-input::-webkit-resizer { display: none; }
   .blog-banner-box { height: auto; }
 
 }
-
-
-
-
 
 /**
  * responsive larger than 580px screen
@@ -1900,8 +1803,6 @@ textarea.form-input::-webkit-resizer { display: none; }
   }
 
   .social-list { justify-content: center; }
-
-
 
   /**
 	 * RESUME
