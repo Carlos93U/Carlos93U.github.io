@@ -652,7 +652,7 @@ main {
 
 .clients-list {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-around;
   align-items:flex-start ;
   gap: 5px;
   margin: 0 -15px;
@@ -665,12 +665,24 @@ main {
 .clients-item {
   min-width: 50%;
   scroll-snap-align: start;
+
+  display: flex;
+  justify-content: center; /* centro horizontal */
+  align-items: center;     /* centro vertical */
+
+}
+
+.clients-item a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .clients-item img {
   width: 100%;
-  /*filter: grayscale(0);*/
+  max-height: 210px;
   transition: var(--transition-1);
+
 }
 
 .clients-item img:hover { transform: scale(1.1); }
@@ -1810,4 +1822,10 @@ textarea.form-input::-webkit-resizer { display: none; }
 
   .timeline-text { max-width: 700px; }
 
+}
+
+/*Aditional classess*/
+.text-justify {
+    text-align: justify;
+    margin-bottom: 10px;
 }
