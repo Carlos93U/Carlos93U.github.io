@@ -25,6 +25,9 @@ function renderCV() {
     // experience
     // renderExperience();
 
+    // certifications
+    renderCertifications();  
+  
     // education
     renderEducation();
 
@@ -35,7 +38,7 @@ function renderCV() {
     renderSkills();
 
     // certifications
-    renderCertifications();
+    renderAdditionalCertifications();
 
     // languages
     renderLanguages();
@@ -73,6 +76,35 @@ function renderExperience() {
         expDiv.appendChild(header);
         expDiv.appendChild(achievementsUl);
         container.appendChild(expDiv);
+    });
+}
+
+function renderCertifications() {
+    const container = document.getElementById('certifications-container');
+    container.innerHTML = '';
+
+    cvData.certifications.forEach(cert => {
+        const certDiv = document.createElement('div');
+        certDiv.className = 'certification-item';
+
+        const degreeTitle = document.createElement('div');
+        degreeTitle.className = 'degree-title';
+        degreeTitle.textContent = cert.degree;
+        const institutionInfo = document.createElement('div');
+        institutionInfo.className = 'institution-info';
+        institutionInfo.textContent = `${cert.institution}, ${cert.location} | ${cert.period}`;
+
+        certDiv.appendChild(degreeTitle);
+        certDiv.appendChild(institutionInfo);
+
+        if (cert.additional) {
+            const additional = document.createElement('div');
+            additional.className = 'additional-info';
+            additional.textContent = cert.additional;
+            certDiv.appendChild(additional);
+        }
+
+        container.appendChild(certDiv);
     });
 }
 
@@ -160,11 +192,11 @@ function renderProjects() {
     });
 }
 
-function renderCertifications() {
+function renderAdditionalCertifications() {
     const list = document.getElementById('certifications-list');
     list.innerHTML = '';
 
-    cvData.certifications.forEach(cert => {
+    cvData.additional_certifications.forEach(cert => {
         const li = document.createElement('li');
         li.textContent = cert;
         list.appendChild(li);

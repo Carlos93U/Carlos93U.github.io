@@ -4,7 +4,7 @@ const cvData = {
     // Personal info
     personalInfo: {
         name: "Juan C. Huillcas",
-        title: "Junior Cloud & AI Engineer | Electrical Engineer",
+        title: "Junior Cloud Engineer | AWS | Infrastructure & Automation",
         email: "juan.huillcas.a@uni.pe",
         phone: "+51 989891835",
         linkedin: "https://www.linkedin.com/in/juan-carlos-huillcas/",
@@ -15,7 +15,7 @@ const cvData = {
 
     // Profesional Profile
     profile:
-        "Electrical Engineering professional specializing in Computer Science, focused on designing and deploying cloud-native and AI-powered solutions on AWS. I work with scalable architectures, automation, security controls, and data processing. Through personal and academic projects, I build end-to-end cloud architectures integrating AI inference, serverless services, monitoring, and best practices in cost, performance, resilience, and security. Motivated by learning, experimentation, and the impact of cloud-driven innovation.",
+        "Junior Cloud Engineer with an Electrical Engineering background and strong focus on cloud computing and infrastructure on AWS. Hands-on experience designing, deploying, and automating cloud-native architectures using services such as S3, EC2, IAM, CloudFront, and Infrastructure as Code. Familiar with serverless architectures, monitoring, and security best practices, with an emphasis on scalability, reliability, and cost optimization. Highly motivated to grow in cloud engineering, automation, and DevOps-oriented environments.",
 
     // Experience > to update later
     experience: [
@@ -56,21 +56,8 @@ const cvData = {
         }
     ],
 
-    // Education
-    education: [
-        {
-            degree: "Computer Science",
-            institution: "Universidad Nacional de Ingeniería",
-            location: "Lima, Peru",
-            period: "2023 - Present",
-            //additional: "Thesis: Design of Scalable Architectures for Machine Learning Models in the Cloud"
-        },
-        {
-            degree: "Electrical Engineering",
-            institution: "Universidad Nacional del Centro del Peru",
-            location: "Junín, Peru",
-            period: "2023"
-        },
+    // Certifications
+    certifications: [
         {
             degree: "AWS Certified Cloud Practitioner",
             institution: "Amazon Web Services",
@@ -85,98 +72,93 @@ const cvData = {
         }
     ],
 
+    // Education
+    education: [
+        {
+            degree: "Computer Science",
+            institution: "Universidad Nacional de Ingeniería",
+            location: "Lima, Peru",
+            period: "2023 - Present",
+            //additional: "Thesis: Design of Scalable Architectures for Machine Learning Models in the Cloud"
+        },
+        {
+            degree: "Electrical Engineering",
+            institution: "Universidad Nacional del Centro del Peru",
+            location: "Junín, Peru",
+            period: "2011-2015"
+        }
+    ],
+
     // Technical Skills
     skills: {
         "Cloud Platforms": [
             "AWS (EC2, S3, IAM, Lambda, CloudFront, CloudWatch, CloudFormation)",
             "Azure Fundamentals",
-            "GCP Basics"
+            "Google Cloud Platform Basics"
         ],
-        "AI & Machine Learning": [
-            "Python (NumPy, Pandas, Scikit-learn)",
-            "Embeddings, RAG, text classification",
-            "Computer vision basics, model evaluation"
+        "Cloud Architecture & Infrastructure": [
+            "Infrastructure as Code (CloudFormation, Terraform – basics)",
+            "Serverless Architectures, Scalable Cloud Architectures",
+            "High Availability, Fault Tolerance, Cost Optimization"
         ],
-        "MLOps (Foundational)": [
-            "Docker",
-            "Experiment tracking",
-            "Metrics monitoring",
-            "Model training pipelines",
-            "CI/CD fundamentals"
-        ],
-        "Cloud Architecture & DevOps": [
-            "Infrastructure as Code (Terraform basics, CloudFormation templates)",
-            "Automation scripting",
-            "Logging / Observability",
-            "Scalable architectures"
+        "DevOps & Automation": [
+            "Automation Scripting, CI/CD Fundamentals",
+            "Infrastructure Deployment, Configuration Management"
         ],
         "CI/CD & Observability": [
-            "GitHub Actions",
-            "GitLab CI",
-            "Jenkins (basics)",
-            "Prometheus (basics)",
-            "Grafana (basics)"
+            "GitHub Actions, GitLab CI (basics), Jenkins (basics)",
+            "Monitoring & Logging, AWS CloudWatch",
+            "Prometheus (basics), Grafana (basics)"
+        ],
+        "Containers & Virtualization": [
+            "Docker",
+            "Containers",
+            "Containerized Applications",
         ],
         "Programming & Scripting": [
             "Python",
             "Bash",
             "YAML"
         ],
-        "Data & Analytics": [
-            "SQL",
-            "ETL concepts",
-            "Data preprocessing",
-            "Cloud storage architectures",
-            "Basic data modeling"
+        "Databases & Storage": [
+            "PostgreSQL, MySQL, Amazon DynamoDB (basics)",
+            "Cloud Storage Architectures"
         ],
-        "Databases": [
-            "PostgreSQL",
-            "MySQL",
-            "DynamoDB (basics)"
-        ],
-        "Core Competencies": [
-            "cloud security",
-            "cost optimization",
-            "scalability",
-            "observability",
-            "automation",
-            "CI/CD",
-            "IaC",
-            "serverless",
-            "containerization",
-            "monitoring"
+        "Security & Networking (Foundational)": [
+            "IAM Policies & Roles, Cloud Security Best Practices",
+            "Networking Fundamentals (VPC concepts, access control)"
         ]
     },
 
     // Featured Projects
     projects: [
         {
-            name: "RAG-Enhanced PDF Query Application",
-            description: "Developed a cloud-hosted application enabling PDF upload, text chunking and semantic search using RAG. Implemented embeddings, vector retrieval, and LLM-based context generation, improving knowledge extraction speed and accuracy. Containerized with Docker and deployed on AWS for scalable inference, integrating Flask APIs, Redis caching, and prompt optimization techniques.",
-            technologies: "AWS Lightsail, Docker, Flask, Python, OpenAI API, Redis, Semantic Search, LLMs, Vector Indexing"
-        },
-        {
             name: "Global Static Website on AWS (S3 & CloudFront)",
-            description: "Deployed a secure, globally-distributed static website on AWS using IaC (CloudFormation), implementing CDN caching, WAF edge protection, origin access control, and observability via CloudWatch, achieving low-latency delivery to US, CA, PE.",
-            technologies: "AWS S3, CloudFront, AWS WAF, CloudFormation, CloudWatch, JavaScript, HTML, CSS"
+            description: "Deployed a secure, globally distributed static website on AWS using Infrastructure as Code. Implemented CDN caching with CloudFront, origin access control, and edge security with AWS WAF. Configured monitoring and logging with CloudWatch to ensure high availability and low latency content delivery across multiple regions.",
+            technologies: "AWS S3, CloudFront, AWS WAF, CloudFormation, CloudWatch, Infrastructure as Code (IaC), CDN, Monitoring, HTML, CSS, JavaScript"
         },
         {
-            name: "Sudoku Vision – CV & Deep Learning App",
-            description: "Built an end-to-end web app that detects Sudoku grids via computer vision, classifies digits with a CNN, and solves puzzles through a backtracking algorithm. Deployed via Streamlit to enable image upload and instant solution visualization.",
-            technologies: "Python, OpenCV, TensorFlow/Keras, CNN, Streamlit"
+            name: "Serene Bot – Serverless Automation on AWS",
+            description: "Developed a serverless automation bot deployed on AWS, leveraging managed cloud services to execute event-driven workflows. Implemented secure IAM roles and permissions, automated execution logic, and cloud-based deployment for reliable and scalable operation. Focused on automation, cloud integration, and maintainable infrastructure.",
+            technologies: "AWS Lambda, IAM, Python, Serverless Architecture, Cloud Automation, Event-Driven Systems"
+        },
+        {
+            name: "Cloud-Deployed PDF Query Application on AWS",
+            description: "Designed and deployed a cloud-hosted application on AWS enabling secure PDF storage and query processing. Containerized the application with Docker and deployed it on AWS infrastructure, integrating REST APIs and caching mechanisms to improve performance and scalability. Focused on cloud deployment, automation, and secure access to cloud resources.",
+            technologies: "AWS Lightsail, Docker, Flask, Python, Redis, REST APIs, Cloud Deployment, Automation"
         }
     ],
 
     // Additional Certifications
-    certifications: [
+    additional_certifications: [
         "CTIC UNI - AWS Architect 1",
+        "CTIC UNI - Cloud Computing - AWS, Azure, Google Cloud",
         "AWS Academy Graduate - Machine Learning Foundations",
+        "IBM SkillsBuild - Agile Explorer",
         "AWS Educate -  Introduction to Generative AI",
         "OpenCV - Mastering OpenCV with Python",
         "OpenCV - OpenCV Bootcamp",
-        "CTIC UNI - Cloud Computing - AWS, Azure, Google Cloud",
         "IBM SkillsBuild - Artificial Intelligence Fundamentals",
-        "IBM SkillsBuild - Agile Explorer",
         "Datapath - Machine Learning Engineer",
         "Datacamp - Deep Learning with PyTorch",
         "Datacamp - Transformer Models with PyTorch",
